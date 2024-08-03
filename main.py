@@ -5,19 +5,20 @@ today = datetime.now()
 DATE = today.strftime("%d/%m/%Y")
 TIME = today.strftime("%I:%M:%S %p")
 
-GENDER = "female"
-WEIGHT_KG = 65
-HEIGHT_CM = 170
-AGE = 18
+GENDER = "gender"
+WEIGHT_KG = weight
+HEIGHT_CM = height
+AGE = age
 
-APP_ID = "56649553"
-API_KEY = "2c763400a8352ee7766b08275d26342e"
+# can be obtained on Nutriotionix (see exercise_endpoint)
+APP_ID = "your id" 
+API_KEY = "your api key"
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
-sheet_endpoint = "https://api.sheety.co/cb5d240270de9e91d13605b022ace18c/workoutTracker/workouts"
-USERNAME = "obri"
-PASSWORD = "S#_Xe5!g62UbN5i"
+sheet_endpoint = "https://api.sheety.co/cb5d240270de9e91d13605b022ace18c/workoutTracker/workouts" # the sheet needs to be created first on sheety then copy the url
+USERNAME = "username"
+PASSWORD = "password"
 
 headers = {
     "x-app-id": APP_ID,
@@ -48,4 +49,4 @@ for exercise in result["exercises"]:
         }
     }
     sheet_response = requests.post(sheet_endpoint, json=sheet_inputs, auth=(USERNAME, PASSWORD))
-    print(sheet_response.text)
+    print(sheet_response.text) 
